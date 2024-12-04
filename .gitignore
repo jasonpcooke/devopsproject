@@ -1,5 +1,5 @@
 ### OSX ###
-DS_Store
+.DS_Store
 AppleDouble
 LSOverride
 Icon
@@ -50,6 +50,4 @@ target/
 *.pyc
 __pycache__/
 local_settings.py
-.env
 venv
-db.sqlite3
