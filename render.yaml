@@ -1,0 +1,22 @@
+databases:
+  - name: devopsapp-render-db
+    plan: free
+    databaseName: devopsapp-render-db
+    user: user
+
+services:
+  - type: web
+    plan: free
+    name: devopsproject
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python -m gunicorn devopsproject.asgi:application -k uvicorn.workers.UvicornWorker"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: devopsapp-render-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
