@@ -1,7 +1,7 @@
 databases:
   - name: devopsapp-render-db
     plan: free
-    databaseName: devopsapp-render-db
+    databaseName: devopsappRenderDb
     user: user
 
 services:
