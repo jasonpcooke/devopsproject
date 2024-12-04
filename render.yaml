@@ -1,5 +1,5 @@
 databases:
-  - name: devopsapp-render-db
+  - name: devopsappRenderDb
     plan: free
     databaseName: devopsappRenderDb
     user: user
