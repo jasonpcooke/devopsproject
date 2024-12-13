@@ -20,3 +20,9 @@ services:
         generateValue: true
       - key: WEB_CONCURRENCY
         value: 4
+    preDeploy:
+    - command: "pip install coverage"
+    - command: "coverage run -m pytest"
+    - command: "coverage report"
+    - command: "coverage report --fail-under=80"  # Set the minimum coverage threshold to 80%
+    pullRequestPreviewsEnabled: true
