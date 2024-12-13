@@ -25,4 +25,3 @@ services:
     - command: "coverage run -m pytest"
     - command: "coverage report"
     - command: "coverage report --fail-under=80"  # Set the minimum coverage threshold to 80%
-    pullRequestPreviewsEnabled: true
