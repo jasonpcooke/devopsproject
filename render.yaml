@@ -9,7 +9,12 @@ services:
     plan: free
     name: devopsapp
     runtime: python
-    buildCommand: "./build.sh"
+    buildCommand: |
+      pip install coverage
+      coverage run -m pytest
+      coverage report
+      coverage report --fail-under=80  # Set the minimum coverage threshold to 80%
+      ./build.sh
     startCommand: "python -m gunicorn devopsproject.asgi:application -k uvicorn.workers.UvicornWorker"
     envVars:
       - key: DATABASE_URL
@@ -20,8 +25,3 @@ services:
         generateValue: true
       - key: WEB_CONCURRENCY
         value: 4
-    preDeploy:
-    - command: "pip install coverage"
-    - command: "coverage run -m pytest"
-    - command: "coverage report"
-    - command: "coverage report --fail-under=80"  # Set the minimum coverage threshold to 80%
