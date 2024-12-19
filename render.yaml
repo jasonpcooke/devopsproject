@@ -16,7 +16,7 @@ services:
       coverage report --fail-under=80  # Set the minimum coverage threshold to 80%
       ./build.sh
     startCommand: |
-      python -c "import os; from django.contrib.auth.models import User; User.objects.create_superuser(os.getenv('DB_SUPER_USERNAME'), 'admin@example.com', os.getenv('DB_SUPER_PASSWORD')) if not User.objects.filter(username=os.getenv('DB_SUPER_USERNAME')).exists() else None"
+      python -c "import os; from django.contrib.auth.models import User; username = os.getenv('DJANGO_SUPERUSER_USERNAME'); password = os.getenv('DJANGO_SUPERUSER_PASSWORD'); User.objects.create_superuser(username, 'admin@example.com', password) if not User.objects.filter(username=username).exists() else None"
       python -m gunicorn devopsproject.asgi:application -k uvicorn.workers.UvicornWorker
     envVars:
       - key: DATABASE_URL
@@ -27,8 +27,7 @@ services:
         generateValue: true
       - key: WEB_CONCURRENCY
         value: 4
-      - key: DB_SUPER_USERNAME
+      - key: DJANGO_SUPERUSER_USERNAME
         sync: false
-      - key: DB_SUPER_PASSWORD
+      - key: DJANGO_SUPERUSER_PASSWORD
         sync: false
-        
