@@ -51,3 +51,9 @@ target/
 __pycache__/
 local_settings.py
 venv
+
+### Visual Studio Code ###
+.vscode/
+
+### coverage ###
+.coverage

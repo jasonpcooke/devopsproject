@@ -8,7 +8,7 @@ class TicketStatus(models.TextChoices):
     DONE = 'Done'
 
 class Ticket(models.Model):
-    title = models.CharField(max_length=100)    
+    title = models.CharField(max_length=100)
     assignee = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
     status = models.CharField(
         max_length=25,
@@ -20,5 +20,7 @@ class Ticket(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    objects = models.Manager()
+
     def __str__(self):
-        return self.title
+        return str(self.title)
