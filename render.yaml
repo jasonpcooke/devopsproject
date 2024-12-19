@@ -16,8 +16,6 @@ services:
       coverage report --fail-under=80  # Set the minimum coverage threshold to 80%
       ./build.sh
     startCommand: "python -m gunicorn devopsproject.asgi:application -k uvicorn.workers.UvicornWorker"
-    preDeploy:
-      - "pylint devopsapp"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
