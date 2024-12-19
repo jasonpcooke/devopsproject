@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
-from .models import Ticket
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
 from django.contrib import messages
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
+from .models import Ticket
 
 class IndexView(LoginRequiredMixin, View):
     @method_decorator(never_cache)

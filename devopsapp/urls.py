@@ -1,7 +1,7 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from .views import IndexView, TicketByIdView, login_redirect
 from django.views.generic import RedirectView
+from .views import IndexView, TicketByIdView, login_redirect
 
 urlpatterns = [
     path('tickets/', IndexView.as_view(), name='index'),
