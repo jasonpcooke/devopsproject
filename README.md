@@ -31,3 +31,41 @@ The application performs the following functional operations:
 - **Programming Languages**: JavaScript, TypeScript
 - **Frameworks**: React, Angular
 - **Libraries**: Redux for state management, Axios for HTTP requests, Material-UI for UI components
+
+## Local Development Setup
+
+### Prerequisites
+- Python (v3.9 or higher)
+- Docker Desktop
+- Git
+
+### Step-by-Step Installation
+
+ **Clone the Repository**
+   bash
+   git clone https://github.com/yourusername/devopsproject.git
+   cd devopsproject
+
+ **Setup**
+   bash
+   # Python Django setup
+   cd backend
+   python -m venv venv
+   source venv/bin/activate  # On Windows use: venv\Scripts\activate
+   pip install -r requirements.txt
+   python manage.py migrate
+   python manage.py createsuperuser
+   python manage.py runserver
+
+ **Environment Configuration**
+   - Create a `.env` file
+   - Copy the contents from `.env.example` files
+   - Update the values according to your local setup
+
+The application should now be running at:
+- Frontend: http://localhost:3000
+- Backend: http://localhost:8000
+- API Documentation: http://localhost:8000/api/docs
+- For database connection issues, verify your PostgreSQL service is running
+- Check that all environment variables are properly set e.g. export DATABASE_URL='your database url'
+
