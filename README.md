@@ -43,7 +43,7 @@ The application performs the following functional operations:
 
  **Clone the Repository**
    bash
-   git clone https://github.com/yourusername/devopsproject.git
+   git clone https://github.com/jasonpcooke/devopsproject.git
    cd devopsproject
 
  **Setup**
@@ -63,9 +63,7 @@ The application performs the following functional operations:
    - Update the values according to your local setup
 
 The application should now be running at:
-- Frontend: http://localhost:3000
-- Backend: http://localhost:8000
-- API Documentation: http://localhost:8000/api/docs
+- http://'ip':8000
 - For database connection issues, verify your PostgreSQL service is running
 - Check that all environment variables are properly set e.g. export DATABASE_URL='your database url'
 
